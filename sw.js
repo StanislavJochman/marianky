@@ -1,30 +1,18 @@
-self.addEventListener("install", function(event) {
-  console.log('WORKER: install event in progress.');
+'use strict';
+
+var cacheVersion = 1;
+var currentCache = {
+  offline: 'offline-cache' + cacheVersion
+};
+const offlineUrl = 'offline-page.html';
+
+this.addEventListener('install', event => {
   event.waitUntil(
-    /* The caches built-in is a promise-based API that helps you cache responses,
-       as well as finding and deleting them.
-    */
-    caches
-      /* You can open a cache by name, and this method returns a promise. We use
-         a versioned cache name here so that we can remove old cache entries in
-         one fell swoop later, when phasing out an older service worker.
-      */
-      .open(version + 'fundamentals')
-      .then(function(cache) {
-        /* After the cache is opened, we can fill it with the offline fundamentals.
-           The method below will add all resources we've indicated to the cache,
-           after making HTTP requests for each of them.
-        */
-        return cache.addAll([
-          'index.html',
-          'style.css',
-          'sw.js',
-          'manifest.json',
-          'icon.png'
-        ]);
-      })
-      .then(function() {
-        console.log('WORKER: install completed');
-      })
+    caches.open(currentCache.offline).then(function(cache) {
+      return cache.addAll([
+          './img/offline.svg',
+          offlineUrl
+      ]);
+    })
   );
 });
