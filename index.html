@@ -1,9 +1,21 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <link rel="manifest" href="/manifest.json">
+</head>
 <body>
 
 <h1>My First Heading</h1>
 <p>My first paragraph.</p>
 
+
+
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+      navigator.serviceWorker.register("/sw.js");
+  });
+}
+</script>
 </body>
 </html>

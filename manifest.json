@@ -1,0 +1,15 @@
+{
+  "short_name": "Marianky",
+  "name": "Marianky",
+  "background_color": "#000",
+  "Theme_color": "#536878",
+  "display": "fullscreen",
+  "icons": [
+    {
+      "src":"icon.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/?utm_source=launcher"
+}
