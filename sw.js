@@ -1,4 +1,4 @@
-/*var cacheVersion = 1;
+var cacheVersion = 1;
 var currentCache = {
   offline: 'offline-cache' + cacheVersion
 };
@@ -35,7 +35,7 @@ this.addEventListener('fetch', event => {
       }
 });
 
-*/
+/*
 
 
 const version = "0.6.11";
@@ -65,3 +65,4 @@ self.addEventListener('fetch', event => {
     })
   );
 });
+*/
