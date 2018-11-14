@@ -10,6 +10,9 @@ this.addEventListener('install', event => {
     caches.open(currentCache.offline).then(function(cache) {
       return cache.addAll([
           'index.html',
+          'style.css',
+          'manifest.js',
+          'icon.png'
           offlineUrl
       ]);
     })
