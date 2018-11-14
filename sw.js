@@ -1,10 +1,9 @@
-/*'use strict';
 
 var cacheVersion = 1;
 var currentCache = {
   offline: 'offline-cache' + cacheVersion
 };
-const offlineUrl = 'offline-page.html';
+const offlineUrl = 'index.html';
 
 this.addEventListener('install', event => {
   event.waitUntil(
@@ -16,4 +15,3 @@ this.addEventListener('install', event => {
     })
   );
 });
-*/
