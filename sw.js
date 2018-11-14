@@ -1,38 +1,28 @@
-
-const version = "1.0.0";
-const cacheName = `marianky-${version}`;
-self.addEventListener('install', e => {
-  e.waitUntil(
-    caches.open(cacheName).then(cache => {
-      return cache.addAll([
-        `index.html`,
-        //`css/style.css`,
-        `icon.png`,
-        `manifest.json`,
-      ])
-          .then(() => self.skipWaiting());
-    })
+self.addEventListener("install", function(event) {
+  console.log('WORKER: install event in progress.');
+  event.waitUntil(
+    /* The caches built-in is a promise-based API that helps you cache responses,
+       as well as finding and deleting them.
+    */
+    caches
+      /* You can open a cache by name, and this method returns a promise. We use
+         a versioned cache name here so that we can remove old cache entries in
+         one fell swoop later, when phasing out an older service worker.
+      */
+      .open(version + 'fundamentals')
+      .then(function(cache) {
+        /* After the cache is opened, we can fill it with the offline fundamentals.
+           The method below will add all resources we've indicated to the cache,
+           after making HTTP requests for each of them.
+        */
+        return cache.addAll([
+          '/',
+          '/css/global.css',
+          '/js/global.js'
+        ]);
+      })
+      .then(function() {
+        console.log('WORKER: install completed');
+      })
   );
 });
-
-self.addEventListener('install', function(event) {
-  console.log('Service Worker installing.');
-});
-
-/*self.addEventListener('activate', function(event) {
-  console.log('Service Worker activating.');
-});*/
-
-self.addEventListener('activate', event => {
-  event.waitUntil(self.clients.claim());
-});
-
-/*self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.open(cacheName)
-      .then(cache => cache.match(event.request, {ignoreSearch: true}))
-      .then(response => {
-      return response || fetch(event.request);
-    })
-  );
-});*/
