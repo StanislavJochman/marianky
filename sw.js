@@ -16,9 +16,11 @@ self.addEventListener("install", function(event) {
            after making HTTP requests for each of them.
         */
         return cache.addAll([
-          '/',
-          '/css/global.css',
-          '/js/global.js'
+          './',
+          'style.css',
+          'sw.js',
+          'manifest.json',
+          'icon.png'
         ]);
       })
       .then(function() {
