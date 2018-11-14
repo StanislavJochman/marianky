@@ -1,4 +1,3 @@
-
 var cacheVersion = 1;
 var currentCache = {
   offline: 'offline-cache' + cacheVersion
@@ -10,15 +9,11 @@ this.addEventListener('install', event => {
     caches.open(currentCache.offline).then(function(cache) {
       return cache.addAll([
           'index.html',
-          'style.css',
-          'manifest.js',
-          'icon.png',
           offlineUrl
       ]);
     })
   );
 });
-
 this.addEventListener('fetch', event => {
   // request.mode = navigate isn't supported in all browsers
   // so include a check for Accept: text/html header.
