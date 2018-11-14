@@ -12,7 +12,7 @@ this.addEventListener('install', event => {
           'index.html',
           'style.css',
           'manifest.js',
-          'icon.png'
+          'icon.png',
           offlineUrl
       ]);
     })
