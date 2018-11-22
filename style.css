@@ -6,6 +6,10 @@ h2 {
   size: 1.5vw;
   text-align: left;
 }
+h3 {
+  size: 1.5vw;
+  text-align: center;
+}
 p {
   text-align: left;
 }

@@ -8,7 +8,7 @@ this.addEventListener('install', event => {
   event.waitUntil(
     caches.open(currentCache.offline).then(function(cache) {
       return cache.addAll([
-          'index.html',
+          'style.css',
           offlineUrl
       ]);
     })
@@ -34,4 +34,3 @@ this.addEventListener('fetch', event => {
             );
       }
 });
-
