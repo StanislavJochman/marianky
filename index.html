@@ -8,8 +8,14 @@
     <title>Modlitebník FDC</title>
     <meta charset="utf-8">
 </head>
-<body>
+<body class="white">
+  <!--black and white mode button-->
+  <div class="float">
+    <p onclick="changeMode()">Nočný režim 🌙</p>
+    <a href="#" style="filter: invert(100%);">🏠</a>
+  </div>
   <div id="wraper">
+  
     <h1>Obsah</h1>
     <ol>
       <p>
@@ -43,6 +49,8 @@ Requiem æternam	8 <br>
       <li><a href="#"></a></li>
       <li><a href="#"></a></li>
       <li><a href="#"></a></li>
+      
+
 
     </p>
     </ol>
@@ -4045,5 +4053,13 @@ Aby iní mohli byť svätejší než ja, no aby som sa stal svätým nakoľko le
     });
   }
   </script>
+  <!--Black and white mode-->
+  <script>
+      function changeMode() {
+          document.querySelector('body').classList.toggle('white');
+          document.querySelector('body').classList.toggle('black');
+      }
+      document.querySelector('#div').addEventListener('click', classToggle);
+    </script>
 </body>
 </html>
